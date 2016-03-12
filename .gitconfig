@@ -1,0 +1,13 @@
+# This is Git's per-user configuration file.
+[user]
+# Please adapt and uncomment the following lines:
+#	name = Stian Drøbak
+#	email = Onizuka89@gmail.com
+[user]
+	name = Stian Drøbak
+	email = Onizuka89@gmail.com
+[push]
+	default = simple
+
+[alias]
+	all = log --decorate --oneline --graph --all
