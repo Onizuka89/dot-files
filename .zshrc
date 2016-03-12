@@ -1,4 +1,4 @@
-unalias run-help
+unalias run-help 2> /dev/null;
 autoload run-help
 HELPDIR=/usr/local/share/zsh/helpfiles
 
@@ -21,11 +21,12 @@ export GOROOT=/usr/local/opt/go/libexec
 export GOBIN=$(which go)
 export XML_CATALOG_FILES=/usr/local/etc/xml/catalog
 
-. $HOME/.aliases
+[[ -s $HOME/.aliases ]] && . $HOME/.aliases
+
 PYTHON_ROOT="/Library/Frameworks/Python.framework/Versions/2.7"
 alias python27="${PYTHON_ROOT}/bin/python2.7"
 
-source dnvm.sh
+[[ -a dnvm.sh ]] && source dnvm.sh
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
@@ -79,7 +80,14 @@ export PATH="$HOME/.composer/vendor/bin:/usr/local/heroku/bin:$HOME/android-sdks
 
 export PATH="/Library/Frameworks/Python.framework/Versions/3.4/bin:$PATH"
 
-source $ZSH/oh-my-zsh.sh
+if [[ -a $ZSH/oh-my-zsh.sh ]]; then
+  source $ZSH/oh-my-zsh.sh
+else
+  echo "Oh-my-zsh is not installed. Remember to install it!";
+fi
+
+
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # # Preferred editor for local and remote sessions
@@ -173,8 +181,7 @@ if [[ -n $TMUX ]]; then;
 fi
 
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-rvm default
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" && rvm default
 
 
 export LANGUAGE="en_GB.UTF-8"
