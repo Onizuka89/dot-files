@@ -9,8 +9,8 @@ call vundle#begin("$HOME/vimfiles/bundle")
 
 Plugin 'VundleVim/Vundle.vim' "Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
-Plugin 'atih/vim-go'
-Plugin 'WolfgangMehner/c'
+Plugin 'fatih/vim-go'
+"Plugin 'WolfgangMehner/c'
 Plugin 'mattn/emmet-vim'
 Plugin 'zaiste/tmux.vim'
 Plugin 'Onizuka89/vim-tsv'
